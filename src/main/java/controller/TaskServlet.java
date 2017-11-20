@@ -27,8 +27,6 @@ public class TaskServlet extends HttpServlet {
         String JSONtasks;
 //        List<Task> taskList = new MockData().retrieveTaskList();
         int userId = Integer.parseInt(request.getParameter("userId"));
-        // temporary hard-coded userId value
-        userId = 1;
         List<Task> taskList = DatabaseManager.getTaskListByUserId(userId);
         JSONtasks = new Gson().toJson(taskList);
 

@@ -15,11 +15,10 @@ tasksController = function() {
 	function retrieveTasksServer() {
         $.ajax("TaskServlet", {
             "type": "get",
-			dataType: "json"
-            // "data": {
-            //     "first": first,
-            //     "last": last
-            // }
+			dataType: "json",
+            "data": {
+                 "userId": 1
+            }
         }).done(displayTasksServer.bind()); //need reference to the tasksController object
     }
 
