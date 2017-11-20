@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CS472-WAP.iml" filepath="$PROJECT_DIR$/CS472-WAP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/taskListProject.iml" filepath="$PROJECT_DIR$/taskListProject.iml" />
     </modules>
   </component>
 </project>

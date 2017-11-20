@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="CS472-WAP" />
+        <module name="taskListProject" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="CS472-WAP" target="1.5" />
+      <module name="taskListProject" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
