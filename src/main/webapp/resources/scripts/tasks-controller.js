@@ -8,6 +8,18 @@ tasksController = function() {
 	var initialised = false;
 
     /**
+	 * function use to add task
+     * make ajax put json data to server
+     */
+
+    function addTaskToServlet(data) {
+		$.ajax("TaskServlet",{
+			"type":"put",
+			dataType:"json",
+			"data":data,
+		}).done();
+    }
+    /**
 	 * makes json call to server to get task list.
 	 * currently just testing this and writing return value out to console
 	 * 111917kl
@@ -118,8 +130,10 @@ tasksController = function() {
 				
 				$(taskPage).find('#saveTask').click(function(evt) {
 					evt.preventDefault();
+
 					if ($(taskPage).find('form').valid()) {
-						var task = $(taskPage).find('form').toObject();		
+						var task = $(taskPage).find('form').toObject();
+                        addTaskToServlet(task);
 						storageEngine.save('task', task, function() {
 							$(taskPage).find('#tblTasks tbody').empty();
 							tasksController.loadTasks();
