@@ -13,7 +13,6 @@ tasksController = function() {
      */
 
     function addTaskToServlet(data) {
-    	var userId = $(taskPage).find( '#userId').val();
 		$.ajax("TaskServlet",{
 			"type":"put",
 			dataType:"json",
