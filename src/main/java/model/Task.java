@@ -6,7 +6,7 @@ public class Task {
     private String task;
     private String dueDate;
     private String category;
-    private String priority;    //CRITICAL, URGENT, HIGH, NORMAL, LOW, LOWEST
+    private String priority; // CRITICAL, URGENT, HIGH, NORMAL, LOW, LOWEST
 
     public Task(int id, String task, String dueDate, String category, String priority) {
         this.id = id;
