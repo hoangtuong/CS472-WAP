@@ -47,7 +47,8 @@ public class DatabaseManager {
                 t.setDueDate(rs.getString(3));
                 t.setCategory(rs.getString(4));
                 t.setPriority(rs.getString(5));
-                t.setUserId(rs.getInt(6));
+                t.setStatus(rs.getString(6));
+                t.setUserId(rs.getInt(7));
                 tasks.add(t);
             }
         } catch (SQLException exception) {
