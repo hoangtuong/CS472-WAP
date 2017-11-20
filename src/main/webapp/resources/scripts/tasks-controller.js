@@ -8,6 +8,21 @@ tasksController = function() {
 	var initialised = false;
 
     /**
+	 * function use to add task
+     * make ajax put json data to server
+     */
+
+    function addTask() {
+		$.ajax("TaskServlet",{
+			"type":"put",
+			dataType:"json",
+			"data":{
+				"userId":1,
+				"dueDate":1
+			}
+		}).done();
+    }
+    /**
 	 * makes json call to server to get task list.
 	 * currently just testing this and writing return value out to console
 	 * 111917kl
@@ -68,6 +83,7 @@ tasksController = function() {
 				
 				$(taskPage).find('#btnAddTask').click(function(evt) {
 					evt.preventDefault();
+					addTask();
 					$(taskPage).find('#taskCreation').removeClass('not');
 				});
 
