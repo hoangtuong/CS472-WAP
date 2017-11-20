@@ -12,12 +12,13 @@ public class Task {
 
     public Task() {}
 
-    public Task(int id, String task, String dueDate, String category, String priority, int userId) {
+    public Task(int id, String task, String dueDate, String category, String priority, String status, int userId) {
         this.id = id;
         this.task = task;
         this.dueDate = dueDate;
         this.category = category;
         this.priority = priority;
+        this.status = status;
         this.userId = userId;
     }
 
