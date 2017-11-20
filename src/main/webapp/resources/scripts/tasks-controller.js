@@ -12,14 +12,12 @@ tasksController = function() {
      * make ajax put json data to server
      */
 
-    function addTask() {
+    function addTaskToServlet(data) {
+    	var userId = $(taskPage).find( '#userId').val();
 		$.ajax("TaskServlet",{
 			"type":"put",
 			dataType:"json",
-			"data":{
-				"userId":1,
-				"dueDate":1
-			}
+			"data":data,
 		}).done();
     }
     /**
@@ -83,7 +81,6 @@ tasksController = function() {
 				
 				$(taskPage).find('#btnAddTask').click(function(evt) {
 					evt.preventDefault();
-					addTask();
 					$(taskPage).find('#taskCreation').removeClass('not');
 				});
 
@@ -134,8 +131,10 @@ tasksController = function() {
 				
 				$(taskPage).find('#saveTask').click(function(evt) {
 					evt.preventDefault();
+
 					if ($(taskPage).find('form').valid()) {
-						var task = $(taskPage).find('form').toObject();		
+						var task = $(taskPage).find('form').toObject();
+                        addTaskToServlet(task);
 						storageEngine.save('task', task, function() {
 							$(taskPage).find('#tblTasks tbody').empty();
 							tasksController.loadTasks();
