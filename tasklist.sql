@@ -11,7 +11,7 @@
  Target Server Version : 50720
  File Encoding         : 65001
 
- Date: 20/11/2017 16:08:42
+ Date: 20/11/2017 16:24:31
 */
 
 SET NAMES utf8mb4;
@@ -38,6 +38,6 @@ CREATE TABLE `task`  (
 INSERT INTO `task` VALUES (1, 'Go to bed early', '2017-11-20 22:00:00', 'Personal', 'Critical', 'Created', 1);
 INSERT INTO `task` VALUES (2, 'Study WAP', '2017-11-20 14:13:04', 'Personal', 'Major', 'Created', 1);
 INSERT INTO `task` VALUES (3, 'Go shopping', '2017-11-20 16:47:08', 'Public', 'Minor', 'Created', 1);
-INSERT INTO `task` VALUES (4, 'Go go', '2017-11-20 16:47:08', 'Personal', 'Minor', 'Created', 1);
+INSERT INTO `task` VALUES (4, 'Yeah yeah', '2017-11-20 16:47:08', 'Personal', 'Minor', 'Completed', 1);
 
 SET FOREIGN_KEY_CHECKS = 1;
