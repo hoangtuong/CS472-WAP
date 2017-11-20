@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="CS472-WAP:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="TaskManagementTool.war">
+      <element id="artifact" artifact-name="CS472-WAP:war exploded" />
+    </root>
+  </artifact>
+</component>
