@@ -38,6 +38,10 @@
 			</select>
 			</div>
 			<div>
+				<label>Belonged to</label> <input type="text" required="required"
+												  name="userId" />
+			</div>
+			<div>
 				<label>Category</label> <select name="category">
 					<option value="Personal">Personal</option>
 					<option value="Work">Work</option>
@@ -52,11 +56,12 @@
 	<section>
 		<table id="tblTasks">
 			<colgroup>
-				<col width="35%">
+				<col width="25%">
 				<col width="15%">
 				<col width="15%">
 				<col width="15%">
-				<col width="20%">
+				<col width="15%">
+				<col width="15%">
 			</colgroup>
 			<thead>
 				<tr>
@@ -64,6 +69,7 @@
 					<th>Due</th>
 					<th>Priority</th>
 					<th>Category</th>
+					<th>UserId</th>
 					<th>Actions</th>
 				</tr>
 			</thead>
@@ -113,6 +119,7 @@ if (window.indexedDB) {
 	<td {{if complete == true}}class="taskCompleted"{{/if}}><time datetime="${dueDate}">${dueDate}</time></td>
 	<td {{if complete == true}}class="taskCompleted"{{/if}}>${priority}</td>
 	<td {{if complete == true}}class="taskCompleted"{{/if}}>${category}</td>
+	<td {{if complete == true}}class="taskCompleted"{{/if}}>${userId}</td>
 	<td>
 		<nav>
 			{{if complete != true}}			
