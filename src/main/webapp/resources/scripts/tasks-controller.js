@@ -152,7 +152,7 @@ tasksController = function() {
 			$(taskPage).find('#tblTasks tbody').empty();
 			storageEngine.findAll('task', function(tasks) {
 				tasks.sort(function(o1, o2) {
-					return Date.parse(o1.requiredBy).compareTo(Date.parse(o2.requiredBy));
+					return Date.parse(o1.dueDate).compareTo(Date.parse(o2.dueDate));
 				});
 				$.each(tasks, function(index, task) {
 					if (!task.complete) {

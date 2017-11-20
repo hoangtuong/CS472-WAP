@@ -25,7 +25,17 @@
 			</div>
 			<div>
 				<label>Required by</label> <input type="date" required="required"
-					name="requiredBy" />
+					name="dueDate" />
+			</div>
+			<div>
+				<label>Priority</label> <select name="priority">
+				<option value="Critical">Critical</option>
+				<option value="Urgent">Urgent</option>
+				<option value="High">High</option>
+				<option value="Normal">Normal</option>
+				<option value="Low">Low</option>
+				<option value="Lowest">Lowest</option>
+			</select>
 			</div>
 			<div>
 				<label>Category</label> <select name="category">
@@ -42,15 +52,17 @@
 	<section>
 		<table id="tblTasks">
 			<colgroup>
-				<col width="40%">
+				<col width="35%">
 				<col width="15%">
 				<col width="15%">
-				<col width="30%">
+				<col width="15%">
+				<col width="20%">
 			</colgroup>
 			<thead>
 				<tr>
 					<th>Name</th>
 					<th>Due</th>
+					<th>Priority</th>
 					<th>Category</th>
 					<th>Actions</th>
 				</tr>
@@ -98,7 +110,8 @@ if (window.indexedDB) {
 <script id="taskRow" type="text/x-jQuery-tmpl">
 <tr>
 	<td {{if complete == true}}class="taskCompleted"{{/if}}>${task}</td>
-	<td {{if complete == true}}class="taskCompleted"{{/if}}><time datetime="${requiredBy}">${requiredBy}</time></td>
+	<td {{if complete == true}}class="taskCompleted"{{/if}}><time datetime="${dueDate}">${dueDate}</time></td>
+	<td {{if complete == true}}class="taskCompleted"{{/if}}>${priority}</td>
 	<td {{if complete == true}}class="taskCompleted"{{/if}}>${category}</td>
 	<td>
 		<nav>
