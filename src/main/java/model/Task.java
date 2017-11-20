@@ -8,6 +8,7 @@ public class Task {
     private String category;
     private String priority;    //CRITICAL, URGENT, HIGH, NORMAL, LOW, LOWEST
     private int userId;
+    private String status = "CREATED";
 
     public Task() {}
 
@@ -66,5 +67,13 @@ public class Task {
 
     public int getUserId() {
         return this.userId;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return this.status;
     }
 }

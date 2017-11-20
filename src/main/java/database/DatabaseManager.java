@@ -76,6 +76,10 @@ public class DatabaseManager {
         }
     }
 
+    public static void updateTask(Task task) {
+
+    }
+
     public static void main(String []arg) {
 //        List<Task> t = getTaskListByUserId(1);
 //        System.out.println(t.size());
