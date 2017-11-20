@@ -6,9 +6,9 @@ public class Task {
     private String task;
     private String dueDate;
     private String category;
-    private TaskPriority priority;
+    private String priority;    //CRITICAL, URGENT, HIGH, NORMAL, LOW, LOWEST
 
-    public Task(int id, String task, String dueDate, String category, TaskPriority priority) {
+    public Task(int id, String task, String dueDate, String category, String priority) {
         this.id = id;
         this.task = task;
         this.dueDate = dueDate;
@@ -48,11 +48,11 @@ public class Task {
         this.category = category;
     }
 
-    public TaskPriority getPriority() {
+    public String getPriority() {
         return priority;
     }
 
-    public void setPriority(TaskPriority priority) {
+    public void setPriority(String priority) {
         this.priority = priority;
     }
 

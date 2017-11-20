@@ -1,7 +1,6 @@
 package utility;
 
 import model.Task;
-import model.TaskPriority;
 
 import java.util.ArrayList;
 
@@ -13,9 +12,9 @@ public class MockData {
 
     public ArrayList<Task> retrieveTaskList() {
 
-        taskList.add(new Task(101, "first task", "2017-11-19", "Personal", TaskPriority.CRITICAL));
-        taskList.add(new Task(102, "second task", "2017-11-23", "Work", TaskPriority.NORMAL));
-        taskList.add(new Task(103, "third task", "2017-12-19", "Work", TaskPriority.LOW));
+        taskList.add(new Task(101, "first task", "2017-11-19", "Personal", "Critical"));
+        taskList.add(new Task(102, "second task", "2017-11-23", "Work", "Normal"));
+        taskList.add(new Task(103, "third task", "2017-12-19", "Work", "Low"));
 
         return taskList;
     }
