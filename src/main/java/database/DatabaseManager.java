@@ -56,10 +56,30 @@ public class DatabaseManager {
         return tasks;
     }
 
-    public static void main(String []arg) {
-        List<Task> t = getTaskListByUserId(1);
-        System.out.println(t.size());
+    public static void insertTask(Task task) {
+        try {
+            String query = "Insert into Task (id, task, dueDate, category, priority, userId)"
+                    + " values (?, ?, ?, ?, ?, ?)";
+            PreparedStatement preparedStmt = dbConnection.prepareStatement(query);
+            preparedStmt.setInt(1, task.getId());
+            preparedStmt.setString(2, task.getTask());
+            preparedStmt.setString(3, task.getDueDate());
+            preparedStmt.setString(4, task.getCategory());
+            preparedStmt.setString(5, task.getPriority());
+            preparedStmt.setInt(6, task.getUserId());
 
+            int rowsUpdated = preparedStmt.executeUpdate();
+            System.out.println(rowsUpdated + " rows updated");
+            preparedStmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String []arg) {
+//        List<Task> t = getTaskListByUserId(1);
+//        System.out.println(t.size());
+        insertTask(new Task(4, "Go go", "2017-11-20 16:47:08", "Personal", "Minor", 1));
     }
 
 }
