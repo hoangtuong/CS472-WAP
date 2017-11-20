@@ -1,6 +1,7 @@
 package controller;
 
 import com.google.gson.Gson;
+import database.DatabaseManager;
 import model.Task;
 import utility.MockData;
 
@@ -24,7 +25,11 @@ public class TaskServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         String JSONtasks;
-        List<Task> taskList = new MockData().retrieveTaskList();
+//        List<Task> taskList = new MockData().retrieveTaskList();
+        int userId = Integer.parseInt(request.getParameter("userId"));
+        // temporary hard-coded userId value
+        userId = 1;
+        List<Task> taskList = DatabaseManager.getTaskListByUserId(userId);
         JSONtasks = new Gson().toJson(taskList);
 
         response.setContentType("application/json");

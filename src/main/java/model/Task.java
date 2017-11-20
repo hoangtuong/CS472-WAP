@@ -7,13 +7,17 @@ public class Task {
     private String dueDate;
     private String category;
     private String priority;    //CRITICAL, URGENT, HIGH, NORMAL, LOW, LOWEST
+    private int userId;
 
-    public Task(int id, String task, String dueDate, String category, String priority) {
+    public Task() {}
+
+    public Task(int id, String task, String dueDate, String category, String priority, int userId) {
         this.id = id;
         this.task = task;
         this.dueDate = dueDate;
         this.category = category;
         this.priority = priority;
+        this.userId = userId;
     }
 
     public int getId() {
@@ -56,4 +60,11 @@ public class Task {
         this.priority = priority;
     }
 
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getUserId() {
+        return this.userId;
+    }
 }
