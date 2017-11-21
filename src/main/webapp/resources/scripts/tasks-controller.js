@@ -6,7 +6,6 @@ tasksController = function() {
 	
 	var taskPage;
 	var initialised = false;
-	var taskList;
 
     /**
 	 * function use to add task
@@ -175,21 +174,28 @@ tasksController = function() {
 					}
 				});
 
-                $(taskPage).find('#tblTasks thead tr > th').click(function (evt) {
+				// Sort task by priority or due date by clicking on table row header
+                $(taskPage).find('#tblTasks thead > tr > th').click(function (evt) {
                     var sortBy = $(evt.target).text();
 
-                    taskList.sort(function (o1, o2) {
-                        if (sortBy === 'Priority') {
-                            return o1.priority > o2.priority;
-                        } else if (sortBy === 'Due') {
-                            return Date.parse(o1.dueDate).compareTo(Date.parse(o2.dueDate));
-                        }
-                    });
+                    if (sortBy === 'Priority' || sortBy === 'Due') {
+                        storageEngine.findAll('task', function(tasks) {
+                            tasks.sort(sortBy === 'Priority' ? sortByPriority : sortByDueDate);
 
-                    $(taskPage).find('#tblTasks tbody').empty();
-                    $('#taskRow').tmpl(taskList).appendTo($(taskPage).find('#tblTasks tbody'));
+                            $(taskPage).find('#tblTasks tbody').empty();
+                            $('#taskRow').tmpl(tasks).appendTo($(taskPage).find('#tblTasks tbody'));
+                        }, errorLogger);
+					}
                 });
 
+                function sortByPriority(task1, task2) {
+                    return task1.priority > task2.priority;
+                }
+
+                function sortByDueDate(task1, task2) {
+                    return Date.parse(task1.dueDate).compareTo(Date.parse(task2.dueDate));
+                }
+                
 				initialised = true;
 			}
 		},
@@ -198,7 +204,6 @@ tasksController = function() {
 		 * modification of the loadTasks method to load tasks retrieved from the server
          */
 		loadServerTasks: function(tasks) {
-            taskList = tasks;
             $(taskPage).find('#tblTasks tbody').empty();
             $.each(tasks, function (index, task) {
                 if (!task.complete) {
@@ -208,12 +213,15 @@ tasksController = function() {
                 taskCountChanged();
                 console.log('about to render table with server tasks');
                 //renderTable(); --skip for now, this just sets style class for overdue tasks 111917kl
+
+				// Save server task to local storage
+                storageEngine.save('task', task, function() {
+                }, errorLogger);
             });
 		},
 		loadTasks : function() {
 			$(taskPage).find('#tblTasks tbody').empty();
 			storageEngine.findAll('task', function(tasks) {
-				taskList = tasks;
 				tasks.sort(function(o1, o2) {
 					return Date.parse(o1.dueDate).compareTo(Date.parse(o2.dueDate));
 				});
