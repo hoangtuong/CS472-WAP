@@ -14,7 +14,7 @@ tasksController = function() {
 
     function addTaskToServlet(data) {
 		$.ajax("TaskServlet",{
-			"type":"put",
+			"type":"post",
 			dataType:"json",
 			"data":data,
 		}).done();

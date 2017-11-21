@@ -36,6 +36,17 @@ public class TaskServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = (String)request.getParameter("action");
+
+        //temporary do the default add task
+        if (action == null){
+            String task = request.getParameter("task");
+            String dueDate = request.getParameter("dueDate");
+            String category = request.getParameter("category");
+            String priority = request.getParameter("priority");
+            int userId = Integer.parseInt(request.getParameter("userId"));
+            Task taskModel = new Task(10+userId,task,dueDate,category,priority,"null",userId);
+            DatabaseManager.insertTask(taskModel);
+        }
         TaskAction handler = actionHandler.get(action);
         int taskId = Integer.parseInt(request.getParameter("taskId"));
         PrintWriter out = response.getWriter();
