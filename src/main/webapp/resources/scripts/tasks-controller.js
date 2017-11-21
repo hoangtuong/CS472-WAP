@@ -154,13 +154,14 @@ tasksController = function() {
 				
 				$(taskPage).find('#tblTasks tbody').on('click', '.completeRow', function(evt) {
 					let taskId = $(evt.target).data().taskId;
+                    completeTaskServer(taskId);
 					storageEngine.findById('task', taskId, function(task) {
 						task.complete = true;
+						task.status = "Completed";
 						storageEngine.save('task', task, function() {
 							tasksController.loadTasks();
 						},errorLogger);
 					}, errorLogger);
-					completeTaskServer(taskId);
 				});
 				
 				$(taskPage).find('#saveTask').click(function(evt) {
@@ -210,9 +211,11 @@ tasksController = function() {
 		loadServerTasks: function(tasks) {
             $(taskPage).find('#tblTasks tbody').empty();
             $.each(tasks, function (index, task) {
-                if (!task.complete) {
-                    task.complete = false;
-                }
+            	if (task.status === "Completed") {
+                    task.complete = true;
+				} else {
+            		task.complete = false;
+				}
                 $('#taskRow').tmpl(task).appendTo($(taskPage).find('#tblTasks tbody'));
                 taskCountChanged();
                 console.log('about to render table with server tasks');
@@ -230,9 +233,11 @@ tasksController = function() {
 					return Date.parse(o1.dueDate).compareTo(Date.parse(o2.dueDate));
 				});
 				$.each(tasks, function(index, task) {
-					if (!task.complete) {
-						task.complete = false;
-					}
+                    if (task.status === "Completed") {
+                        task.complete = true;
+                    } else {
+                        task.complete = false;
+                    }
 					$('#taskRow').tmpl(task).appendTo($(taskPage).find('#tblTasks tbody'));
 					taskCountChanged();
 					renderTable();
