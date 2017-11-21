@@ -3,6 +3,7 @@ package controller;
 import com.google.gson.Gson;
 import database.DatabaseManager;
 import handler.TaskAction;
+import handler.TaskCompleteImpl;
 import handler.TaskDeletionImpl;
 import handler.TaskUpdateImpl;
 import model.Task;
@@ -30,6 +31,7 @@ public class TaskServlet extends HttpServlet {
         super.init();
         actionHandler.put("delete", new TaskDeletionImpl());
         actionHandler.put("update", new TaskUpdateImpl());
+        actionHandler.put("complete", new TaskCompleteImpl());
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

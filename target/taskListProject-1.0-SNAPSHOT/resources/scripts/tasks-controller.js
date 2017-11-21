@@ -57,6 +57,20 @@ tasksController = function() {
 	function deleteTaskServerDone(data) {
 		console.log(data);
 	}
+
+    function completeTaskServer(taskId) {
+        $.ajax("TaskServlet", {
+            "type": "post",
+            datatype: "json",
+            "data": {"action": "complete",
+                "taskId" : taskId
+            }
+        }).done(completeTaskServerDone);
+	}
+
+	function completeTaskServerDone(taskId) {
+		console.log(data);
+    }
 	
 	function taskCountChanged() {
 		var count = $(taskPage).find( '#tblTasks tbody tr').length;
@@ -134,13 +148,15 @@ tasksController = function() {
 					clearTask();
 				});
 				
-				$(taskPage).find('#tblTasks tbody').on('click', '.completeRow', function(evt) { 					
-					storageEngine.findById('task', $(evt.target).data().taskId, function(task) {
+				$(taskPage).find('#tblTasks tbody').on('click', '.completeRow', function(evt) {
+					let taskId = $(evt.target).data().taskId;
+					storageEngine.findById('task', taskId, function(task) {
 						task.complete = true;
 						storageEngine.save('task', task, function() {
 							tasksController.loadTasks();
 						},errorLogger);
 					}, errorLogger);
+					completeTaskServer(taskId);
 				});
 				
 				$(taskPage).find('#saveTask').click(function(evt) {

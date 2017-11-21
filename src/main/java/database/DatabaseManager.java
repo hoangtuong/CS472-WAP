@@ -103,6 +103,14 @@ public class DatabaseManager {
         preparedStmt.close();
     }
 
+    public static void completeTask(int taskId) throws SQLException {
+        String query = "Update Task set status = Completed where id = ? ";
+        PreparedStatement preparedStmt = dbConnection.prepareStatement(query);
+        preparedStmt.setInt(1, taskId);
+        preparedStmt.executeUpdate();
+        preparedStmt.close();
+    }
+
     public static void main(String []arg) {
 //        List<Task> t = getTaskListByUserId(1);
 //        System.out.println(t.size());
