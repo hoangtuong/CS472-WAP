@@ -104,7 +104,7 @@ public class DatabaseManager {
     }
 
     public static void completeTask(int taskId) throws SQLException {
-        String query = "Update Task set status = Completed where id = ? ";
+        String query = "Update task set status = 'Completed' where id = ?";
         PreparedStatement preparedStmt = dbConnection.prepareStatement(query);
         preparedStmt.setInt(1, taskId);
         preparedStmt.executeUpdate();

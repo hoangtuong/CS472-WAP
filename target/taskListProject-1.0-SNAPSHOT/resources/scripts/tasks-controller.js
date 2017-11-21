@@ -68,7 +68,7 @@ tasksController = function() {
         }).done(completeTaskServerDone);
 	}
 
-	function completeTaskServerDone(taskId) {
+	function completeTaskServerDone(data) {
 		console.log(data);
     }
 	

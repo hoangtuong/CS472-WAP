@@ -43,6 +43,7 @@ public class TaskServlet extends HttpServlet {
             handler.perform(taskId);
             out.write("SUCCESS: Perform " + action + " task ID: " + taskId);
         } catch (SQLException ex) {
+            ex.printStackTrace();
             out.write("ERROR: Perform " + action + " task ID: " + taskId);
         }
     }

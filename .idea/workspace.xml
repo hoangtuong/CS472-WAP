@@ -7,11 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ea741d2-a544-4c1e-94fa-5b3b790c2ff9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/handler/TaskCompleteImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/TaskServlet.java" afterPath="$PROJECT_DIR$/src/main/java/controller/TaskServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/database/DatabaseManager.java" afterPath="$PROJECT_DIR$/src/main/java/database/DatabaseManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/scripts/tasks-controller.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/scripts/tasks-controller.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -44,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskServlet.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TaskServlet.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/TaskServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="33" column="62" lean-forward="false" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
+            <state relative-caret-position="372">
+              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -90,25 +87,25 @@
       <file leaf-file-name="DatabaseManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/database/DatabaseManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="105" column="23" lean-forward="false" selection-start-line="105" selection-start-column="23" selection-end-line="105" selection-end-column="23" />
+            <state relative-caret-position="204">
+              <caret line="103" column="5" lean-forward="true" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1511238504360" expanded="true" signature="1173:1205" ph="SELECT * fro... task" />
-                <marker date="1511238504360" expanded="true" signature="1858:1973" ph="Insert into Task... " />
-                <marker date="1511238504360" expanded="true" signature="2726:2831" ph="Update Task " />
-                <marker date="1511238504360" expanded="true" signature="3562:3591" ph="Delete from " />
-                <marker date="1511238504360" expanded="true" signature="3876:3923" ph="Update Task " />
+                <marker date="1511239319673" expanded="true" signature="1173:1205" ph="SELECT * fro... task" />
+                <marker date="1511239319673" expanded="true" signature="1858:1973" ph="Insert into Task... " />
+                <marker date="1511239319673" expanded="true" signature="2726:2831" ph="Update Task " />
+                <marker date="1511239319673" expanded="true" signature="3562:3591" ph="Delete from " />
+                <marker date="1511239319673" expanded="true" signature="3876:3925" ph="Update task " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tasks-controller.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tasks-controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/scripts/tasks-controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2207">
-              <caret line="152" column="68" lean-forward="false" selection-start-line="152" selection-start-column="68" selection-end-line="152" selection-end-column="68" />
+            <state relative-caret-position="1290">
+              <caret line="202" column="31" lean-forward="false" selection-start-line="202" selection-start-column="31" selection-end-line="202" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -177,6 +174,7 @@
       <find>loadServerTasks</find>
       <find>completeRow</find>
       <find>task</find>
+      <find>complete</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -200,10 +198,10 @@
         <option value="$PROJECT_DIR$/src/main/java/model/Task.java" />
         <option value="$PROJECT_DIR$/src/main/java/utility/MockData.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/TaskServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/database/DatabaseManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/handler/TaskCompleteImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/scripts/tasks-controller.js" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/TaskServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/database/DatabaseManager.java" />
       </list>
     </option>
   </component>
@@ -220,7 +218,7 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
     <option name="width" value="1938" />
@@ -597,10 +595,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27921000" />
+    <option name="totallyTimeSpent" value="28453000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -667,7 +665,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="12" />
+      <option name="time" value="14" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -981,35 +979,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/TaskServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="33" column="62" lean-forward="false" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/handler/TaskCompleteImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/database/DatabaseManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="105" column="23" lean-forward="false" selection-start-line="105" selection-start-column="23" selection-end-line="105" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1511238504360" expanded="true" signature="1173:1205" ph="SELECT * fro... task" />
-            <marker date="1511238504360" expanded="true" signature="1858:1973" ph="Insert into Task... " />
-            <marker date="1511238504360" expanded="true" signature="2726:2831" ph="Update Task " />
-            <marker date="1511238504360" expanded="true" signature="3562:3591" ph="Delete from " />
-            <marker date="1511238504360" expanded="true" signature="3876:3923" ph="Update Task " />
           </folding>
         </state>
       </provider>
@@ -1045,8 +1020,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/scripts/tasks-controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2207">
-          <caret line="152" column="68" lean-forward="false" selection-start-line="152" selection-start-column="68" selection-end-line="152" selection-end-column="68" />
+        <state relative-caret-position="1290">
+          <caret line="202" column="31" lean-forward="false" selection-start-line="202" selection-start-column="31" selection-end-line="202" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/database/DatabaseManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="103" column="5" lean-forward="true" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1511239319673" expanded="true" signature="1173:1205" ph="SELECT * fro... task" />
+            <marker date="1511239319673" expanded="true" signature="1858:1973" ph="Insert into Task... " />
+            <marker date="1511239319673" expanded="true" signature="2726:2831" ph="Update Task " />
+            <marker date="1511239319673" expanded="true" signature="3562:3591" ph="Delete from " />
+            <marker date="1511239319673" expanded="true" signature="3876:3925" ph="Update task " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/TaskServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding />
         </state>
       </provider>
