@@ -2,7 +2,7 @@ package model;
 
 public class Task {
 
-    private int id;
+    private int id = 0;
     private String task;
     private String dueDate;
     private String category;

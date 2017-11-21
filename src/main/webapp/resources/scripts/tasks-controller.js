@@ -177,7 +177,7 @@ tasksController = function() {
 
 					if ($(taskPage).find('form').valid()) {
 						var task = $(taskPage).find('form').toObject();
-						task.id = 1;
+						task.id = 0;
                         addTaskToServlet(task);
 						storageEngine.save('task', task, function() {
 							$(taskPage).find('#tblTasks tbody').empty();
