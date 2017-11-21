@@ -135,7 +135,6 @@ tasksController = function() {
                     evt.preventDefault();
                     console.log('making ajax call');
                     retrieveTasksServer();
-                    usersController.retrieveUserServer();
                 });
 				
 				$(taskPage).find('#tblTasks tbody').on('click', 'tr', function(evt) {
