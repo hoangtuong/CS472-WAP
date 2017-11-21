@@ -8,7 +8,7 @@ public class Task {
     private String category;
     private String priority;    //CRITICAL, URGENT, HIGH, NORMAL, LOW, LOWEST
     private int userId;
-    private String status = "CREATED";
+    private String status = "Created";
 
     public Task() {}
 

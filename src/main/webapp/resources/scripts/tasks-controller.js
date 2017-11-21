@@ -12,12 +12,12 @@ tasksController = function() {
      * make ajax put json data to server
      */
 
-    function addTaskToServlet(data) {
-    	console.log(data);
+    function saveTaskToServlet(data, action) {
+        console.log(data);
 		$.ajax("TaskServlet",{
 			"type":"post",
 			dataType:"json",
-            "data": {"action": "insert",
+            "data": {"action": action,
                 "task" : JSON.stringify(data)
             }
 		}).done();
@@ -174,11 +174,15 @@ tasksController = function() {
 				
 				$(taskPage).find('#saveTask').click(function(evt) {
 					evt.preventDefault();
-
 					if ($(taskPage).find('form').valid()) {
 						var task = $(taskPage).find('form').toObject();
-						task.id = 0;
-                        addTaskToServlet(task);
+                        if (task.id === "") {
+                            task.id = 0;
+                            saveTaskToServlet(task, "insert");
+                        } else {
+                            saveTaskToServlet(task, "update");
+						}
+
 						storageEngine.save('task', task, function() {
 							$(taskPage).find('#tblTasks tbody').empty();
 							tasksController.loadTasks();
