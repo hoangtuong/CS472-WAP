@@ -72,6 +72,17 @@ nav {
 	margin:15px 0 10px 0;
 }
 
+nav div a {
+	 background: #53777a;
+	 color: #fff;
+	 width: 80px;
+	 text-decoration: none;
+	 border: 1px solid #5b5b5b;
+	 font-size: 13px;
+	 text-align:  center;
+	 padding:5px 10px;
+ }
+
 nav a {
 	background: #53777a;
 	color: #fff;
@@ -85,6 +96,7 @@ nav a {
 
 nav div {
 	margin-top: 15px;
+	margin-bottom: 15px;
 }
 
 label {
