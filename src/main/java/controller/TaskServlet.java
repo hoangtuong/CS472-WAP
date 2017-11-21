@@ -49,8 +49,11 @@ public class TaskServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-
-        int userId = Integer.parseInt(request.getParameter("userId"));
+        String userIdPara = request.getParameter("userId");
+        Integer userId = null;
+        if (userIdPara != null && !userIdPara.equals("")) {
+            userId = Integer.parseInt(userIdPara);
+        }
         try {
             List<Task> taskList = DatabaseManager.getTaskListByUserId(userId);
             String JSONtasks = new Gson().toJson(taskList);
