@@ -8,7 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6ea741d2-a544-4c1e-94fa-5b3b790c2ff9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/scripts/tasks-controller.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/scripts/tasks-controller.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -31,11 +30,50 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tasks-controller.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tasks-controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/scripts/tasks-controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="227" column="24" lean-forward="true" selection-start-line="227" selection-start-column="24" selection-end-line="227" selection-end-column="24" />
+            <state relative-caret-position="218">
+              <caret line="201" column="40" lean-forward="true" selection-start-line="201" selection-start-column="40" selection-end-line="201" selection-end-column="40" />
+              <folding>
+                <marker date="1511298208000" expanded="true" signature="29:8172" ph="{...}" />
+                <marker date="1511298208000" expanded="true" signature="2569:8169" ph="{...}" />
+                <marker date="1511298208000" expanded="true" signature="2606:6600" ph="{...}" />
+                <marker date="1511298208000" expanded="true" signature="2656:6596" ph="{...}" />
+                <marker date="1511298208000" expanded="true" signature="5672:6248" ph="{...}" />
+                <marker date="1511298208000" expanded="true" signature="5911:6230" ph="{...}" />
+                <marker date="1511298208000" expanded="true" signature="5911:6208" ph="{...}" />
+                <marker date="1511298208000" expanded="true" signature="6610:6721" ph="/** 111917kl ...*/" />
+                <marker date="1511298208000" expanded="true" signature="6757:7531" ph="{...}" />
+                <marker date="1511298208000" expanded="true" signature="6928:7525" ph="{...}" />
+                <marker date="1511298208000" expanded="true" signature="6976:7025" ph="{...}" />
+                <marker date="1511298208000" expanded="true" signature="7031:7075" ph="{...}" />
+                <marker date="1511298208000" expanded="true" signature="7558:8165" ph="{...}" />
+                <marker date="1511298208000" expanded="true" signature="7657:8146" ph="{...}" />
+                <marker date="1511298208000" expanded="true" signature="7691:7768" ph="{...}" />
+                <marker date="1511298208000" expanded="true" signature="7811:8139" ph="{...}" />
+                <marker date="1511298208000" expanded="true" signature="7866:7935" ph="{...}" />
+                <marker date="1511298208000" expanded="true" signature="7941:8011" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tasks.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/tasks.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="122">
+              <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -69,7 +107,6 @@
       <find>findById</find>
       <find>loadServerTasks</find>
       <find>task</find>
-      <find>complete</find>
       <find>toObject</find>
       <find>thead</find>
       <find>completeRow</find>
@@ -81,6 +118,7 @@
       <find>edit</find>
       <find>completeTaskServer</find>
       <find>addTaskToServlet</find>
+      <find>complete</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -102,7 +140,6 @@
         <option value="$PROJECT_DIR$/src/main/java/database/DatabaseConnection.java" />
         <option value="$PROJECT_DIR$/src/main/java/utility/MockData.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/main/webapp/tasks.html" />
         <option value="$PROJECT_DIR$/src/main/java/handler/TaskAction.java" />
         <option value="$PROJECT_DIR$/src/main/java/handler/TaskUpdateImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/handler/TaskCompleteImpl.java" />
@@ -112,6 +149,7 @@
         <option value="$PROJECT_DIR$/src/main/java/controller/TaskServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Task.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/scripts/tasks-controller.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/tasks.html" />
       </list>
     </option>
   </component>
@@ -508,7 +546,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45131000" />
+    <option name="totallyTimeSpent" value="45169000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="52" y="23" width="1228" height="777" extended-state="6" />
@@ -619,13 +657,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/Task.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -889,7 +920,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="11" column="47" lean-forward="false" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -904,9 +934,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="10" column="40" lean-forward="false" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -921,7 +948,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="11" column="32" lean-forward="false" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -929,7 +955,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="4" column="20" lean-forward="false" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -953,8 +978,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/tasks.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-19">
-          <caret line="66" column="20" lean-forward="true" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="20" />
+        <state relative-caret-position="122">
+          <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -977,8 +1002,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/scripts/tasks-controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="227" column="24" lean-forward="true" selection-start-line="227" selection-start-column="24" selection-end-line="227" selection-end-column="24" />
+        <state relative-caret-position="218">
+          <caret line="201" column="40" lean-forward="true" selection-start-line="201" selection-start-column="40" selection-end-line="201" selection-end-column="40" />
+          <folding>
+            <marker date="1511298208000" expanded="true" signature="29:8172" ph="{...}" />
+            <marker date="1511298208000" expanded="true" signature="2569:8169" ph="{...}" />
+            <marker date="1511298208000" expanded="true" signature="2606:6600" ph="{...}" />
+            <marker date="1511298208000" expanded="true" signature="2656:6596" ph="{...}" />
+            <marker date="1511298208000" expanded="true" signature="5672:6248" ph="{...}" />
+            <marker date="1511298208000" expanded="true" signature="5911:6230" ph="{...}" />
+            <marker date="1511298208000" expanded="true" signature="5911:6208" ph="{...}" />
+            <marker date="1511298208000" expanded="true" signature="6610:6721" ph="/** 111917kl ...*/" />
+            <marker date="1511298208000" expanded="true" signature="6757:7531" ph="{...}" />
+            <marker date="1511298208000" expanded="true" signature="6928:7525" ph="{...}" />
+            <marker date="1511298208000" expanded="true" signature="6976:7025" ph="{...}" />
+            <marker date="1511298208000" expanded="true" signature="7031:7075" ph="{...}" />
+            <marker date="1511298208000" expanded="true" signature="7558:8165" ph="{...}" />
+            <marker date="1511298208000" expanded="true" signature="7657:8146" ph="{...}" />
+            <marker date="1511298208000" expanded="true" signature="7691:7768" ph="{...}" />
+            <marker date="1511298208000" expanded="true" signature="7811:8139" ph="{...}" />
+            <marker date="1511298208000" expanded="true" signature="7866:7935" ph="{...}" />
+            <marker date="1511298208000" expanded="true" signature="7941:8011" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
           <folding />
         </state>
       </provider>
