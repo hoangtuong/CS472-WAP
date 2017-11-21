@@ -6,6 +6,7 @@ tasksController = function() {
 	
 	var taskPage;
 	var initialised = false;
+	var taskList;
 
     /**
 	 * function use to add task
@@ -173,6 +174,22 @@ tasksController = function() {
 						}, errorLogger);
 					}
 				});
+
+                $(taskPage).find('#tblTasks thead tr > th').click(function (evt) {
+                    var sortBy = $(evt.target).text();
+
+                    taskList.sort(function (o1, o2) {
+                        if (sortBy === 'Priority') {
+                            return o1.priority > o2.priority;
+                        } else if (sortBy === 'Due') {
+                            return Date.parse(o1.dueDate).compareTo(Date.parse(o2.dueDate));
+                        }
+                    });
+
+                    $(taskPage).find('#tblTasks tbody').empty();
+                    $('#taskRow').tmpl(taskList).appendTo($(taskPage).find('#tblTasks tbody'));
+                });
+
 				initialised = true;
 			}
 		},
@@ -181,6 +198,7 @@ tasksController = function() {
 		 * modification of the loadTasks method to load tasks retrieved from the server
          */
 		loadServerTasks: function(tasks) {
+            taskList = tasks;
             $(taskPage).find('#tblTasks tbody').empty();
             $.each(tasks, function (index, task) {
                 if (!task.complete) {
@@ -195,6 +213,7 @@ tasksController = function() {
 		loadTasks : function() {
 			$(taskPage).find('#tblTasks tbody').empty();
 			storageEngine.findAll('task', function(tasks) {
+				taskList = tasks;
 				tasks.sort(function(o1, o2) {
 					return Date.parse(o1.dueDate).compareTo(Date.parse(o2.dueDate));
 				});

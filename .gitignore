@@ -22,3 +22,7 @@
 hs_err_pid*
 
 target/*
+
+target/taskListProject-1.0-SNAPSHOT/resources/scripts/tasks-controller.js
+
+target/taskListProject-1.0-SNAPSHOT/META-INF/MANIFEST.MF
