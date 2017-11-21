@@ -34,11 +34,18 @@ public class DatabaseManager {
         }
     }
 
-    public static List<Task> getTaskListByUserId(int userId) throws SQLException {
+    public static List<Task> getTaskListByUserId(Integer userId) throws SQLException {
         List<Task> tasks = new ArrayList<>();
         Statement st;
         st = dbConnection.createStatement();
-        ResultSet rs = st.executeQuery("SELECT * from task WHERE userId=" + userId);
+
+        // Query statement
+        String queryString = "SELECT * from task";
+        if (userId != null) {
+            queryString += " WHERE userId=" + userId.intValue();
+        }
+
+        ResultSet rs = st.executeQuery(queryString);
         while (rs.next()) {
             Task t = new Task();
             t.setId(rs.getInt(1));
