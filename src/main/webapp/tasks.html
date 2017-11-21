@@ -103,7 +103,8 @@ function initScreen() {
 
 		// User controllers
         usersController.init($('#taskPage'), function() {
-            usersController.loadUsers();
+             usersController.retrieveUserServer();
+//            usersController.loadUsers();
         });
 	});
 }
