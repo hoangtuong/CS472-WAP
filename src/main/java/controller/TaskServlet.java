@@ -50,12 +50,10 @@ public class TaskServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
 
-        String JSONtasks;
-//        List<Task> taskList = new MockData().retrieveTaskList();
         int userId = Integer.parseInt(request.getParameter("userId"));
         try {
             List<Task> taskList = DatabaseManager.getTaskListByUserId(userId);
-            JSONtasks = new Gson().toJson(taskList);
+            String JSONtasks = new Gson().toJson(taskList);
 
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
