@@ -48,12 +48,13 @@ tasksController = function() {
         tasksController.loadServerTasks(data);
     }
 
-    function deleteTaskServer(taskId) {
+    function deleteTaskServer(task) {
+    	console.log(task)
     	$.ajax("TaskServlet", {
 			"type": "post",
 			datatype: "json",
 			"data": {"action": "delete",
-					"taskId" : taskId
+					"task" : task
 			}
 		}).done(deleteTaskServerDone);
 	}
@@ -129,12 +130,16 @@ tasksController = function() {
 				$(taskPage).find('#tblTasks tbody').on('click', '.deleteRow', 
 					function(evt) {
 						let taskId = $(evt.target).data().taskId;
+                        storageEngine.findById('task', taskId, function(task) {
+                            deleteTaskServer(task);
+                        }, errorLogger);
+
 						storageEngine.delete('task', taskId,
 							function() {
 								$(evt.target).parents('tr').remove(); 
 								taskCountChanged();
 							}, errorLogger);
-						deleteTaskServer(taskId);
+
 					}
 				);
 				

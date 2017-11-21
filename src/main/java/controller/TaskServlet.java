@@ -2,10 +2,7 @@ package controller;
 
 import com.google.gson.Gson;
 import database.DatabaseManager;
-import handler.TaskAction;
-import handler.TaskCompleteImpl;
-import handler.TaskDeletionImpl;
-import handler.TaskUpdateImpl;
+import handler.*;
 import model.Task;
 import utility.MockData;
 
@@ -32,19 +29,21 @@ public class TaskServlet extends HttpServlet {
         actionHandler.put("delete", new TaskDeletionImpl());
         actionHandler.put("update", new TaskUpdateImpl());
         actionHandler.put("complete", new TaskCompleteImpl());
+        actionHandler.put("insert", new TaskInsertImpl());
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = (String)request.getParameter("action");
         TaskAction handler = actionHandler.get(action);
-        int taskId = Integer.parseInt(request.getParameter("taskId"));
+        Object task = request.getParameter("data");
         PrintWriter out = response.getWriter();
+        Task t = new Task();
         try {
-            handler.perform(taskId);
-            out.write("SUCCESS: Perform " + action + " task ID: " + taskId);
+            handler.perform(t);
+            out.write("SUCCESS: Perform " + action + " task ID: " + t.getId());
         } catch (SQLException ex) {
             ex.printStackTrace();
-            out.write("ERROR: Perform " + action + " task ID: " + taskId);
+            out.write("ERROR: Perform " + action + " task ID: " + t.getId());
         }
     }
 
