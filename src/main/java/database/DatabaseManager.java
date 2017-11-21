@@ -78,15 +78,15 @@ public class DatabaseManager {
     }
 
     public static void updateTask(Task task) throws SQLException {
-        String query = "Update Task set task = ?, dueDate = ?, category = ?, priority = ?, status = ? where id = ? and userId = ?";
+        String query = "Update Task set task = ?, dueDate = ?, category = ?, priority = ?, status = ?, userId = ? where id = ?";
         PreparedStatement preparedStmt = dbConnection.prepareStatement(query);
         preparedStmt.setString(1, task.getTask());
         preparedStmt.setString(2, task.getDueDate());
         preparedStmt.setString(3, task.getCategory());
         preparedStmt.setString(4, task.getPriority());
         preparedStmt.setString(5, task.getStatus());
-        preparedStmt.setInt(6, task.getId());
-        preparedStmt.setInt(7, task.getUserId());
+        preparedStmt.setInt(6, task.getUserId());
+        preparedStmt.setInt(7, task.getId());
         preparedStmt.executeUpdate();
         preparedStmt.close();
     }

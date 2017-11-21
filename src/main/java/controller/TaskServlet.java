@@ -57,13 +57,11 @@ public class TaskServlet extends HttpServlet {
         try {
             List<Task> taskList = DatabaseManager.getTaskListByUserId(userId);
             String JSONtasks = new Gson().toJson(taskList);
-
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             out.write(JSONtasks);
         } catch (SQLException ex) {
             out.write("ERROR: Get tasks from user: + " + userId);
         }
-
     }
 }
