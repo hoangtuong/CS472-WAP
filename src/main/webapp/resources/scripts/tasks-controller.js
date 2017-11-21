@@ -43,6 +43,20 @@ tasksController = function() {
     	console.log(data);
         tasksController.loadServerTasks(data);
     }
+
+    function deleteTaskServer(taskId) {
+    	$.ajax("TaskServlet", {
+			"type": "post",
+			datatype: "json",
+			"data": {"action": "delete",
+					"taskId" : taskId
+			}
+		}).done(deleteTaskServerDone);
+	}
+
+	function deleteTaskServerDone(data) {
+		console.log(data);
+	}
 	
 	function taskCountChanged() {
 		var count = $(taskPage).find( '#tblTasks tbody tr').length;
@@ -95,13 +109,14 @@ tasksController = function() {
 				});	
 				
 				$(taskPage).find('#tblTasks tbody').on('click', '.deleteRow', 
-					function(evt) { 					
-						storageEngine.delete('task', $(evt.target).data().taskId, 
+					function(evt) {
+						let taskId = $(evt.target).data().taskId;
+						storageEngine.delete('task', taskId,
 							function() {
 								$(evt.target).parents('tr').remove(); 
 								taskCountChanged();
 							}, errorLogger);
-						
+						deleteTaskServer(taskId);
 					}
 				);
 				

@@ -95,6 +95,14 @@ public class DatabaseManager {
         }
     }
 
+    public static void deleteTask(int taskId) throws SQLException {
+        String query = "Delete from task where id = ?";
+        PreparedStatement preparedStmt = dbConnection.prepareStatement(query);
+        preparedStmt.setInt(1, taskId);
+        preparedStmt.execute();
+        preparedStmt.close();
+    }
+
     public static void main(String []arg) {
 //        List<Task> t = getTaskListByUserId(1);
 //        System.out.println(t.size());

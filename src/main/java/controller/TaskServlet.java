@@ -2,6 +2,9 @@ package controller;
 
 import com.google.gson.Gson;
 import database.DatabaseManager;
+import handler.TaskAction;
+import handler.TaskDeletionImpl;
+import handler.TaskUpdateImpl;
 import model.Task;
 import utility.MockData;
 
@@ -12,13 +15,34 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet("/TaskServlet")
 public class TaskServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private Map<String, TaskAction> actionHandler = new HashMap<>();
 
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        actionHandler.put("delete", new TaskDeletionImpl());
+        actionHandler.put("update", new TaskUpdateImpl());
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = (String)request.getParameter("action");
+        TaskAction handler = actionHandler.get(action);
+        int taskId = Integer.parseInt(request.getParameter("taskId"));
+        PrintWriter out = response.getWriter();
+        try {
+            handler.perform(taskId);
+            out.write("SUCCESS: Perform " + action + " task ID: " + taskId);
+        } catch (SQLException ex) {
+            out.write("ERROR: Perform " + action + " task ID: " + taskId);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
