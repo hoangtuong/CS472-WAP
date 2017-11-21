@@ -195,6 +195,7 @@ tasksController = function() {
 				// Sort task by priority or due date by clicking on table row header
                 $(taskPage).find('#tblTasks thead > tr > th').click(function (evt) {
                     var sortBy = $(evt.target).text();
+                    console.log(sortBy);
 
                     if (sortBy === 'Priority' || sortBy === 'Due') {
                         storageEngine.findAll('task', function(tasks) {
@@ -222,6 +223,8 @@ tasksController = function() {
 		 * modification of the loadTasks method to load tasks retrieved from the server
          */
 		loadServerTasks: function(tasks) {
+			storageEngine.initializedObjectStores = {};	// reset cache
+
             $(taskPage).find('#tblTasks tbody').empty();
             $.each(tasks, function (index, task) {
             	if (task.status === "Completed") {
