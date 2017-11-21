@@ -1,6 +1,7 @@
 package database;
 
 import model.Task;
+import model.User;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -99,11 +100,40 @@ public class DatabaseManager {
         preparedStmt.close();
     }
 
+    public static List<User> getUsers() throws SQLException {
+        List<User> users = new ArrayList<>();
+        Statement st;
+        st = dbConnection.createStatement();
+        ResultSet rs = st.executeQuery("SELECT * from user");
+        while (rs.next()) {
+            User u = new User();
+            u.setId(rs.getInt(1));
+            u.setName(rs.getString(2));
+            u.setEmail(rs.getString(3));
+
+            users.add(u);
+        }
+        return users;
+    }
+
+    public static void insertUser(User user) throws SQLException {
+        String query = "Insert into User (name, email)"
+                + " values (?, ?)";
+        PreparedStatement preparedStmt = dbConnection.prepareStatement(query);
+        preparedStmt.setString(1, user.getName());
+        preparedStmt.setString(2, user.getEmail());
+        int rowsUpdated = preparedStmt.executeUpdate();
+        System.out.println(rowsUpdated + " rows updated");
+        preparedStmt.close();
+    }
+
     public static void main(String []arg) {
 //        List<Task> t = getTaskListByUserId(1);
 //        System.out.println(t.size());
         try {
-            updateTask(new Task(4, "Yeah yeah", "2017-11-20 16:47:08", "Personal", "Minor", "Completed", 1));
+//            updateTask(new Task(4, "Yeah yeah", "2017-11-20 16:47:08", "Personal", "Minor", "Completed", 1));
+            List<User> users = getUsers();
+            System.out.println(users.get(0).getName());
         } catch (SQLException ex) {
 
         }
