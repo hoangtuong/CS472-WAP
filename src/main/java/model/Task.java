@@ -2,13 +2,13 @@ package model;
 
 public class Task {
 
-    private int id;
+    private int id = 0;
     private String task;
     private String dueDate;
     private String category;
     private String priority;    //CRITICAL, URGENT, HIGH, NORMAL, LOW, LOWEST
     private int userId;
-    private String status = "CREATED";
+    private String status = "Created";
 
     public Task() {}
 
