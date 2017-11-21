@@ -7,7 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ea741d2-a544-4c1e-94fa-5b3b790c2ff9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/database/DatabaseManager.java" afterPath="$PROJECT_DIR$/src/main/java/database/DatabaseManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/TaskServlet.java" afterPath="$PROJECT_DIR$/src/main/java/controller/TaskServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/taskListProject-1.0-SNAPSHOT/resources/styles/tasks.css" afterPath="$PROJECT_DIR$/target/taskListProject-1.0-SNAPSHOT/resources/styles/tasks.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/taskListProject-1.0-SNAPSHOT/tasks.html" afterPath="$PROJECT_DIR$/target/taskListProject-1.0-SNAPSHOT/tasks.html" />
     </list>
@@ -42,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskServlet.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TaskServlet.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/TaskServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="29" column="54" lean-forward="false" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="54" />
+            <state relative-caret-position="725">
+              <caret line="63" column="64" lean-forward="false" selection-start-line="63" selection-start-column="64" selection-end-line="63" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -66,10 +66,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseManager.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DatabaseManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/database/DatabaseManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2163">
+            <state relative-caret-position="2100">
               <caret line="107" column="0" lean-forward="true" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
               <folding>
                 <marker date="1511293213172" expanded="true" signature="1171:1203" ph="SELECT * fro... task" />
@@ -199,11 +199,11 @@
         <option value="$PROJECT_DIR$/src/main/java/handler/TaskUpdateImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/handler/TaskCompleteImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/handler/TaskDeletionImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/TaskServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/handler/TaskInsertImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Task.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/scripts/tasks-controller.js" />
         <option value="$PROJECT_DIR$/src/main/java/database/DatabaseManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/TaskServlet.java" />
       </list>
     </option>
   </component>
@@ -586,12 +586,12 @@
       <workItem from="1511201900674" duration="205000" />
       <workItem from="1511207274473" duration="2867000" />
       <workItem from="1511210355665" duration="5907000" />
-      <workItem from="1511278553997" duration="10810000" />
+      <workItem from="1511278553997" duration="11030000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41383000" />
+    <option name="totallyTimeSpent" value="41603000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -1019,19 +1019,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/TaskServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="29" column="54" lean-forward="false" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/database/DatabaseManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2163">
+        <state relative-caret-position="2100">
           <caret line="107" column="0" lean-forward="true" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
           <folding>
             <marker date="1511293213172" expanded="true" signature="1171:1203" ph="SELECT * fro... task" />
@@ -1039,6 +1029,16 @@
             <marker date="1511293213172" expanded="true" signature="2476:2581" ph="Update Task " />
             <marker date="1511293213172" expanded="true" signature="3194:3223" ph="Delete from " />
             <marker date="1511293213172" expanded="true" signature="3508:3557" ph="Update task " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/TaskServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="725">
+          <caret line="63" column="64" lean-forward="false" selection-start-line="63" selection-start-column="64" selection-end-line="63" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
