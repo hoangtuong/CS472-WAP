@@ -17,7 +17,7 @@ public class DatabaseManager {
         }
         Connection connection = null;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost/tasklist?user=root&password=root");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost/tasklist?user=root&password=");
             return connection;
         } catch (SQLException e) {
             System.out.println("Connection failed");
