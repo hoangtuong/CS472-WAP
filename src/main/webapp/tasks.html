@@ -9,6 +9,7 @@
 <script src="resources/scripts/jquery.validate.js"></script>
 <script src="resources/scripts/jquery-serialization.js"></script>
 <script src="resources/scripts/tasks-controller.js"></script>
+	<script src="resources/scripts/users-controller.js"></script>
 <script src="resources/scripts/date.js"></script>
 </head>
 <body>
@@ -28,7 +29,8 @@
 					name="dueDate" />
 			</div>
 			<div>
-				<label>Priority</label> <select name="priority">
+				<label>Priority</label>
+				<select name="priority">
 				<option value="Critical">Critical</option>
 				<option value="Urgent">Urgent</option>
 				<option value="High">High</option>
@@ -38,8 +40,10 @@
 			</select>
 			</div>
 			<div>
-				<label>Belonged to</label> <input type="text" required="required"
-												  name="userId" id="userId"/>
+				<label>Assigned to</label>
+				<!--<input type="text" required="required" name="userId" id="userId"/>-->
+				<select id="userId" name="userId">
+				</select>
 			</div>
 			<div>
 				<label>Category</label> <select name="category">
@@ -77,11 +81,13 @@
 			</tbody>
 		</table>
 		<nav>
-			<div><a href="#" id="btnAddTask">Add task</a></div>
 			<div>
+				<a href="#" id="btnAddTask">Add task</a>
 				<a href="#" id="btnRetrieveTasks">Retrieve tasks from server</a>
-				<label>Please input userId</label> <input type="text" placeholder="input numbers,default all tasks"
-												  name="retrieveUserId" id="retrieveUserId"/>
+			</div>
+			<div>
+				<label>Please input userId</label>
+				<input type="text" placeholder="Input user id" name="retrieveUserId" id="retrieveUserId">
 			</div>
 		</nav>
 	</section>
@@ -93,7 +99,12 @@ function initScreen() {
 	$(document).ready(function() {
 		tasksController.init($('#taskPage'), function() {
 			tasksController.loadTasks();
-		});		
+		});
+
+		// User controllers
+        usersController.init($('#taskPage'), function() {
+            usersController.loadUsers();
+        });
 	});
 }
 if (window.indexedDB) { 
