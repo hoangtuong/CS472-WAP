@@ -25,11 +25,15 @@ tasksController = function() {
 	 * 111917kl
      */
 	function retrieveTasksServer() {
+		var retrieveUserId = $(taskPage).find("#retrieveUserId").val();
+		if (!retrieveUserId){
+			retrieveUserId = 1;
+		}
         $.ajax("TaskServlet", {
             "type": "get",
 			dataType: "json",
             "data": {
-                 "userId": 1
+                 "userId": retrieveUserId
             }
         }).done(displayTasksServer.bind()); //need reference to the tasksController object
     }
