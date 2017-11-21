@@ -17,7 +17,7 @@ public class DatabaseManager {
         }
         Connection connection = null;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost/tasklist?user=root&password=");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost/tasklist?user=root&password=root");
             return connection;
         } catch (SQLException e) {
             System.out.println("Connection failed");
@@ -59,14 +59,14 @@ public class DatabaseManager {
 
     public static void insertTask(Task task) {
         try {
-            String query = "Insert into Task (id, task, dueDate, category, priority, userId)"
+            String query = "Insert into Task (task, dueDate, category, priority, status, userId)"
                     + " values (?, ?, ?, ?, ?, ?)";
             PreparedStatement preparedStmt = dbConnection.prepareStatement(query);
-            preparedStmt.setInt(1, task.getId());
-            preparedStmt.setString(2, task.getTask());
-            preparedStmt.setString(3, task.getDueDate());
-            preparedStmt.setString(4, task.getCategory());
-            preparedStmt.setString(5, task.getPriority());
+            preparedStmt.setString(1, task.getTask());
+            preparedStmt.setString(2, task.getDueDate());
+            preparedStmt.setString(3, task.getCategory());
+            preparedStmt.setString(4, task.getPriority());
+            preparedStmt.setString(5, "Created");
             preparedStmt.setInt(6, task.getUserId());
 
             int rowsUpdated = preparedStmt.executeUpdate();

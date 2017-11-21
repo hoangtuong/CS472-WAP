@@ -34,27 +34,16 @@ public class TaskServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = (String)request.getParameter("action");
-
-        //temporary do the default add task
-        if (action == null){
-            String task = request.getParameter("task");
-            String dueDate = request.getParameter("dueDate");
-            String category = request.getParameter("category");
-            String priority = request.getParameter("priority");
-            int userId = Integer.parseInt(request.getParameter("userId"));
-            Task taskModel = new Task(10+userId,task,dueDate,category,priority,"null",userId);
-            DatabaseManager.insertTask(taskModel);
-        }
+        String taskString = request.getParameter("task");
         TaskAction handler = actionHandler.get(action);
-        Object task = request.getParameter("data");
+        Task task = new Gson().fromJson(taskString, Task.class);
         PrintWriter out = response.getWriter();
-        Task t = new Task();
         try {
-            handler.perform(t);
-            out.write("SUCCESS: Perform " + action + " task ID: " + t.getId());
+            handler.perform(task);
+            out.write("SUCCESS: Perform " + action + " task ID: " + task.getId());
         } catch (SQLException ex) {
             ex.printStackTrace();
-            out.write("ERROR: Perform " + action + " task ID: " + t.getId());
+            out.write("ERROR: Perform " + action + " task ID: " + task.getId());
         }
     }
 

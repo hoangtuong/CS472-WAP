@@ -22,6 +22,15 @@ public class Task {
         this.userId = userId;
     }
 
+    public Task(String task, String dueDate, String category, String priority, String status, int userId) {
+        this.task = task;
+        this.dueDate = dueDate;
+        this.category = category;
+        this.priority = priority;
+        this.status = status;
+        this.userId = userId;
+    }
+
     public int getId() {
         return id;
     }

@@ -13,10 +13,13 @@ tasksController = function() {
      */
 
     function addTaskToServlet(data) {
+    	console.log(data);
 		$.ajax("TaskServlet",{
 			"type":"post",
 			dataType:"json",
-			"data":data,
+            "data": {"action": "insert",
+                "task" : JSON.stringify(data)
+            }
 		}).done();
     }
     /**
@@ -54,7 +57,7 @@ tasksController = function() {
 			"type": "post",
 			datatype: "json",
 			"data": {"action": "delete",
-					"task" : task
+					"task" : JSON.stringify(task)
 			}
 		}).done(deleteTaskServerDone);
 	}
@@ -63,12 +66,12 @@ tasksController = function() {
 		console.log(data);
 	}
 
-    function completeTaskServer(taskId) {
+    function completeTaskServer(task) {
         $.ajax("TaskServlet", {
             "type": "post",
             datatype: "json",
             "data": {"action": "complete",
-                "taskId" : taskId
+                "task" : JSON.stringify(task)
             }
         }).done(completeTaskServerDone);
 	}
@@ -159,10 +162,10 @@ tasksController = function() {
 				
 				$(taskPage).find('#tblTasks tbody').on('click', '.completeRow', function(evt) {
 					let taskId = $(evt.target).data().taskId;
-                    completeTaskServer(taskId);
 					storageEngine.findById('task', taskId, function(task) {
 						task.complete = true;
 						task.status = "Completed";
+                        completeTaskServer(task);
 						storageEngine.save('task', task, function() {
 							tasksController.loadTasks();
 						},errorLogger);
@@ -174,6 +177,7 @@ tasksController = function() {
 
 					if ($(taskPage).find('form').valid()) {
 						var task = $(taskPage).find('form').toObject();
+						task.id = 1;
                         addTaskToServlet(task);
 						storageEngine.save('task', task, function() {
 							$(taskPage).find('#tblTasks tbody').empty();
