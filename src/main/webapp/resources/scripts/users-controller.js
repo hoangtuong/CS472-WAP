@@ -13,7 +13,7 @@ usersController = function() {
     }
 
     function insertUserPopUp() {
-        let username = prompt("Please enter your name:");
+        let username = prompt("Please enter user name:");
         if (username === null || username === "") {
             console.log("User cancelled the prompt.");
         } else {
