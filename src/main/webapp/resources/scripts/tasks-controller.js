@@ -6,15 +6,15 @@ tasksController = function() {
 	
 	var taskPage;
 	var initialised = false;
-    var sortMap = {
+    var sortCriteria = {
         'thPriority' : function (task1, task2) {
             return task1.priority > task2.priority;
         },
         'thDue' : function (task1, task2) {
             return Date.parse(task1.dueDate).compareTo(Date.parse(task2.dueDate));
         },
-        'thUserId' :  function (task1, task2) {
-            return task1.userId < task2.userId;
+        'thUserId' : function (task1, task2) {
+            return task1.userId > task2.userId;
         },
 };
 
@@ -205,8 +205,7 @@ tasksController = function() {
 
 				// Sort task by priority or due date by clicking on table row header
                 $(taskPage).find('#tblTasks thead > tr > th').click(function (evt) {
-                    let sortBy = evt.target.id;
-                    let sortFunction = sortMap[sortBy];
+                    let sortFunction = sortCriteria[evt.target.id];
 
                     if (sortFunction != null) {
                         storageEngine.findAll('task', function(tasks) {
