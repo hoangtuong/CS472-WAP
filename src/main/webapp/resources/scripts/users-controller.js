@@ -58,27 +58,31 @@ usersController = function() {
          */
         loadServerUsers: function(users) {
             // storageEngine.initializedObjectStores = {};	// reset cache
+            let userIdSelect = $(taskPage).find('#taskCreation #userId');
+            userIdSelect.empty();
 
-            // $(taskPage).find('#tblTasks tbody').empty();
             $.each(users, function (index, user) {
-                // $('#taskRow').tmpl(user).appendTo($(taskPage).find('#tblTasks tbody'));
+                userIdSelect.append($('<option>', {
+                    value : user.id,
+                    text : user.name
+                }));
 
                 // Save server task to local storage
                 storageEngine.save('user', user, function() {
                 }, errorLogger);
             });
         },
-        loadUsers : function() {
-            storageEngine.findAll('user', function(users) {
-                // users.sort(function(o1, o2) {
-                //     return Date.parse(o1.dueDate).compareTo(Date.parse(o2.dueDate));
-                // });
-                $.each(users, function(index, user) {
-                    // $('#taskRow').tmpl(task).appendTo($(taskPage).find('#tblTasks tbody'));
-                    // taskCountChanged();
-                    // renderTable();
-                });
-            }, errorLogger);
-        }
+        // loadUsers : function() {
+        //     storageEngine.findAll('user', function(users) {
+        //         // users.sort(function(o1, o2) {
+        //         //     return Date.parse(o1.dueDate).compareTo(Date.parse(o2.dueDate));
+        //         // });
+        //         $.each(users, function(index, user) {
+        //             // $('#taskRow').tmpl(task).appendTo($(taskPage).find('#tblTasks tbody'));
+        //             // taskCountChanged();
+        //             // renderTable();
+        //         });
+        //     }, errorLogger);
+        // }
     }
 }();
