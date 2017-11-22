@@ -12,6 +12,17 @@ usersController = function() {
         usersController.loadServerUsers(users);
     }
 
+    function insertUserPopUp() {
+        var txt;
+        var person = prompt("Please enter your name:", "Harry Potter");
+        if (person == null || person == "") {
+            txt = "User cancelled the prompt.";
+        } else {
+            txt = "Hello " + person + "! How are you today?";
+        }
+        document.getElementById("demo").innerHTML = txt;
+    }
+
     return {
         init : function(page, callback) {
             if (initialised) {
@@ -25,6 +36,11 @@ usersController = function() {
                 }, errorLogger);
 
                 initialised = true;
+
+                $(taskPage).find('#btnAddUser').click(function(evt) {
+                    console.log("CALLLLLLLLL");
+                    insertUserPopUp();
+                });
             }
         },
 
