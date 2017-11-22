@@ -151,3 +151,14 @@ label.error {
 .taskCompleted {
 	text-decoration: line-through;
 }
+
+#addUser {
+	background: #53777a;
+	color: #fff;
+	width: 85px;
+	text-decoration: none;
+	border: 1px solid #5b5b5b;
+	font-size: 13px;
+	text-align:  center;
+	padding:3px 10px 3px 10px;
+}

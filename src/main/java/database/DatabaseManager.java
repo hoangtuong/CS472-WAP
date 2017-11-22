@@ -123,7 +123,7 @@ public class DatabaseManager {
         return users;
     }
 
-    public static void insertUser(User user) throws SQLException {
+    public static int insertUser(User user) throws SQLException {
         String query = "Insert into User (name, email)"
                 + " values (?, ?)";
         PreparedStatement preparedStmt = dbConnection.prepareStatement(query);
@@ -131,7 +131,14 @@ public class DatabaseManager {
         preparedStmt.setString(2, user.getEmail());
         int rowsUpdated = preparedStmt.executeUpdate();
         System.out.println(rowsUpdated + " rows updated");
+
+        ResultSet rs = preparedStmt.getGeneratedKeys();
+        int last_inserted_id = 0;
+        if(rs.next())  {
+            last_inserted_id = rs.getInt(1);
+        }
         preparedStmt.close();
+        return last_inserted_id;
     }
 
     public static void main(String []arg) {

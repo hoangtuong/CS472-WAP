@@ -12,6 +12,35 @@ usersController = function() {
         usersController.loadServerUsers(users);
     }
 
+    function insertUserPopUp() {
+        let username = prompt("Please enter user name:");
+        if (username === null || username === "") {
+            console.log("User cancelled the prompt.");
+        } else {
+            insertUserServer(username, "abc@gmail.com");
+        }
+    }
+
+    function insertUserServer(username, email) {
+        $.ajax("UserServlet", {
+            "type": "post",
+            dataType: "json",
+            "data": {"username": username, "email": email}
+        }).done(function(user) {
+            console.log(user);
+            let userIdSelect = $(taskPage).find('#taskCreation #userId');
+            userIdSelect.append($('<option>', {
+                value : user.id,
+                text : user.name,
+                selected: "selected"
+            }));
+            storageEngine.save('user', user, function() {
+            }, errorLogger);
+        }).fail(function(xhr, status, exception) {
+            console.log(xhr, status, exception);
+        });
+    }
+
     return {
         init : function(page, callback) {
             if (initialised) {
@@ -25,6 +54,10 @@ usersController = function() {
                 }, errorLogger);
 
                 initialised = true;
+                $(taskPage).find('#addUser').click(function(evt) {
+                    evt.preventDefault();
+                    insertUserPopUp();
+                });
             }
         },
 
