@@ -151,3 +151,7 @@ label.error {
 .taskCompleted {
 	text-decoration: line-through;
 }
+
+#addUser {
+	text-decoration: none;
+}

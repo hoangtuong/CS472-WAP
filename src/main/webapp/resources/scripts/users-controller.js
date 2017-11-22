@@ -13,14 +13,32 @@ usersController = function() {
     }
 
     function insertUserPopUp() {
-        var txt;
-        var person = prompt("Please enter your name:", "Harry Potter");
-        if (person == null || person == "") {
-            txt = "User cancelled the prompt.";
+        let username = prompt("Please enter your name:");
+        if (username === null || username === "") {
+            console.log("User cancelled the prompt.");
         } else {
-            txt = "Hello " + person + "! How are you today?";
+            insertUserServer(username, "abc@gmail.com");
         }
-        document.getElementById("demo").innerHTML = txt;
+    }
+
+    function insertUserServer(username, email) {
+        $.ajax("UserServlet", {
+            "type": "post",
+            dataType: "json",
+            "data": {"username": username, "email": email}
+        }).done(function(user) {
+            console.log(user);
+            let userIdSelect = $(taskPage).find('#taskCreation #userId');
+            userIdSelect.append($('<option>', {
+                value : user.id,
+                text : user.name,
+                selected: "selected"
+            }));
+            storageEngine.save('user', user, function() {
+            }, errorLogger);
+        }).fail(function(xhr, status, exception) {
+            console.log(xhr, status, exception);
+        });
     }
 
     return {
@@ -36,9 +54,8 @@ usersController = function() {
                 }, errorLogger);
 
                 initialised = true;
-
-                $(taskPage).find('#btnAddUser').click(function(evt) {
-                    console.log("CALLLLLLLLL");
+                $(taskPage).find('#addUser').click(function(evt) {
+                    evt.preventDefault();
                     insertUserPopUp();
                 });
             }

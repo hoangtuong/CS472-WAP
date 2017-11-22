@@ -16,12 +16,18 @@ import java.sql.SQLException;
 @WebServlet("/UserServlet")
 public class UserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String userJsonString = request.getParameter("user");
-        User user = new Gson().fromJson(userJsonString, User.class);
+        String username = request.getParameter("username");
+        String email = request.getParameter("email");
+        User user = new User(username, email);
         PrintWriter out = response.getWriter();
         try {
-            DatabaseManager.insertUser(user);
-            out.print("SUCCESS: add user: " + user.toString());
+            int userId = DatabaseManager.insertUser(user);
+            user.setId(userId);
+            String JSONUser = new Gson().toJson(user);
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            System.out.println(JSONUser);
+            out.write(JSONUser);
         } catch (SQLException ex) {
             out.print("ERROR: add user: " + user.toString());
         }
