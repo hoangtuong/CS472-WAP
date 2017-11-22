@@ -6,15 +6,40 @@ tasksController = function() {
 	
 	var taskPage;
 	var initialised = false;
+
     var sortCriteria = {
-        'thPriority' : function (task1, task2) {
-            return task1.priority > task2.priority;
+        'thPriority' : function (asc) {
+        	if (asc) {
+                return function(task1, task2) {
+                    return task1.priority > task2.priority;
+                };
+            } else {
+        		return function(task1, task2) {
+                    return task1.priority < task2.priority;
+				};
+			}
         },
-        'thDue' : function (task1, task2) {
-            return Date.parse(task1.dueDate).compareTo(Date.parse(task2.dueDate));
+        'thDue' : function (asc) {
+        	if (asc) {
+        		return function (task1, task2) {
+                    return Date.parse(task1.dueDate).compareTo(Date.parse(task2.dueDate));
+                }
+			} else {
+        		return function (task1, task2) {
+                    return Date.parse(task2.dueDate).compareTo(Date.parse(task1.dueDate));
+                };
+			}
         },
-        'thUserId' : function (task1, task2) {
-            return task1.userId > task2.userId;
+        'thUserId' : function (asc) {
+        	if (asc) {
+        		return function (task1, task2) {
+                    return task1.userId > task2.userId;
+                };
+			} else {
+        		return function (task1, task2) {
+                    return task1.userId < task2.userId;
+                }
+			}
         },
 };
 
@@ -204,17 +229,23 @@ tasksController = function() {
 				});
 
 				// Sort task by priority or due date by clicking on table row header
-                $(taskPage).find('#tblTasks thead > tr > th').click(function (evt) {
-                    let sortFunction = sortCriteria[evt.target.id];
+                $(taskPage).find('#tblTasks thead > tr > th').each(function () {
+					var inverse = false;
 
-                    if (sortFunction != null) {
-                        storageEngine.findAll('task', function(tasks) {
-                            tasks.sort(sortFunction);
+                    $(this).click(function (evt) {
+                        let sortFunction = sortCriteria[evt.target.id];
 
-                            $(taskPage).find('#tblTasks tbody').empty();
-                            $('#taskRow').tmpl(tasks).appendTo($(taskPage).find('#tblTasks tbody'));
-                        }, errorLogger);
-					}
+                        if (sortFunction != null) {
+                            storageEngine.findAll('task', function(tasks) {
+                                tasks.sort(sortFunction(inverse));
+
+                                $(taskPage).find('#tblTasks tbody').empty();
+                                $('#taskRow').tmpl(tasks).appendTo($(taskPage).find('#tblTasks tbody'));
+                            }, errorLogger);
+
+                            inverse = !inverse;
+                        }
+                    });
                 });
 
 				initialised = true;
