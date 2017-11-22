@@ -241,6 +241,7 @@ tasksController = function() {
 
                                 $(taskPage).find('#tblTasks tbody').empty();
                                 $('#taskRow').tmpl(tasks).appendTo($(taskPage).find('#tblTasks tbody'));
+                                renderTable();
                             }, errorLogger);
 
                             inverse = !inverse;
@@ -268,7 +269,7 @@ tasksController = function() {
                 $('#taskRow').tmpl(task).appendTo($(taskPage).find('#tblTasks tbody'));
                 taskCountChanged();
                 console.log('about to render table with server tasks');
-                //renderTable(); --skip for now, this just sets style class for overdue tasks 111917kl
+                renderTable(); //--skip for now, this just sets style class for overdue tasks 111917kl
 
 				// Save server task to local storage
                 storageEngine.save('task', task, function() {
