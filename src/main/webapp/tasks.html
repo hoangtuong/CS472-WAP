@@ -41,9 +41,7 @@
 			</div>
 			<div>
 				<label>Assigned to</label>
-				<!--<input type="text" required="required" name="userId" id="userId"/>-->
-				<select id="userId" name="userId">
-				</select>
+				<select id="userId" name="userId"></select>
 			</div>
 			<div>
 				<label>Category</label> <select name="category">
@@ -83,11 +81,12 @@
 		<nav>
 			<div>
 				<a href="#" id="btnAddTask">Add task</a>
-				<a href="#" id="btnRetrieveTasks">Retrieve tasks from server</a>
 			</div>
+			<br>
 			<div>
-				<label>Please input userId</label>
-				<input type="text" placeholder="Input user id" name="retrieveUserId" id="retrieveUserId">
+				User Name: <select id="retrieveUserId" name="retrieveUserId"></select>
+				<!--<input type="text" placeholder="User Id" name="retrieveUserId" id="retrieveUserId">-->
+				<a href="#" id="btnRetrieveTasks">Retrieve</a>
 			</div>
 		</nav>
 	</section>

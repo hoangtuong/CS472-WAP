@@ -43,10 +43,25 @@ usersController = function() {
         loadServerUsers: function(users) {
             // storageEngine.initializedObjectStores = {};	// reset cache
             let userIdSelect = $(taskPage).find('#taskCreation #userId');
+            let retrieveUserId = $(taskPage).find('#retrieveUserId');
+
+            console.log(retrieveUserId);
+
             userIdSelect.empty();
+
+            // Add an empty <option>
+            retrieveUserId.append($('<option>', {
+                value : '',
+                text : ''
+            }));
 
             $.each(users, function (index, user) {
                 userIdSelect.append($('<option>', {
+                    value : user.id,
+                    text : user.name
+                }));
+
+                retrieveUserId.append($('<option>', {
                     value : user.id,
                     text : user.name
                 }));
