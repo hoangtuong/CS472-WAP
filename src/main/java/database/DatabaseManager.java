@@ -18,7 +18,7 @@ public class DatabaseManager {
         }
         Connection connection = null;
         try {
-//            connection = DriverManager.getConnection("jdbc:mysql://localhost/tasklist", "root", "root");
+//           connection = DriverManager.getConnection("jdbc:mysql://localhost/tasklist", "root", "");
             connection = DriverManager.getConnection("jdbc:mysql://tasklist.ct8jonywmdqi.us-east-2.rds.amazonaws.com:3306/tasklist", "tuonghoang", "123456789");
             return connection;
         } catch (SQLException e) {
@@ -63,7 +63,7 @@ public class DatabaseManager {
     }
 
     public static void insertTask(Task task) throws SQLException {
-        String query = "Insert into Task (task, dueDate, category, priority, status, userId)"
+        String query = "Insert into task (task, dueDate, category, priority, status, userId)"
                     + " values (?, ?, ?, ?, ?, ?)";
         PreparedStatement preparedStmt = dbConnection.prepareStatement(query);
         preparedStmt.setString(1, task.getTask());
@@ -79,7 +79,7 @@ public class DatabaseManager {
     }
 
     public static void updateTask(Task task) throws SQLException {
-        String query = "Update Task set task = ?, dueDate = ?, category = ?, priority = ?, status = ?, userId = ? where id = ?";
+        String query = "Update task set task = ?, dueDate = ?, category = ?, priority = ?, status = ?, userId = ? where id = ?";
         PreparedStatement preparedStmt = dbConnection.prepareStatement(query);
         preparedStmt.setString(1, task.getTask());
         preparedStmt.setString(2, task.getDueDate());
